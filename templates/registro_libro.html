@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Libro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="{{ url_for('inscripcion') }}">Inscripcion de Curso</a></li>
+                <li><a href="{{ url_for('registro_usuario') }}">Registro de Usuarios</a></li>
+                <li><a href="{{ url_for('registro_libro') }}">Registro de Libros</a></li>
+                <li><a href="{{ url_for('registro_producto') }}">Registro de Productos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Formulario de Registro de Libro</h1>
+    <form action="{{ url_for('registro_libro_resultado') }}" method="POST">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required>
+        <br>
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required>
+        <br>
+        <label for="resumen">Resumen:</label>
+        <textarea id="resumen" name="resumen" rows="5" cols="40" required></textarea>
+        <br>
+        <label for="medio">Medio:</label>
+        <select id="medio" name="medio">
+            <option value="Físico">Físico</option>
+            <option value="Magnético">Magnético</option>
+        </select>
+        <br>
+        <button type="submit">Registrar Libro</button>
+    </form>
+    <p><a href="{{ url_for('mostrar_libros')}}" class="ver">Ver registro</a></p>
+</body>
+</html>
